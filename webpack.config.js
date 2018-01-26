@@ -4,7 +4,7 @@ module.exports = {
 	entry:__dirname +'/src/app/app.js',
 	output:{
 		path: __dirname + "/dist",//打包后的文件存放的地方
-    	filename: "js/[name].bundle.js"//打包后输出文件的文件名
+    		filename: "js/[name].bundle.js"//打包后输出文件的文件名
 	},
 	plugins:[
 		new htmlWebpackPlugin({
@@ -14,13 +14,18 @@ module.exports = {
 		})
 	]，
 	module:{
-		loaders:[
+		rules:[
 			{
 				test:/\.js$/,
-				loader:'babel',
-				query:{
-					presets:['latest']
-				}
+				use:[
+					{
+						loader:'babel-loader',
+						query:{
+							presets:['latest']
+						}
+					}
+				],
+				include:__dirname+'/src',
 			}
 		]
 	}
