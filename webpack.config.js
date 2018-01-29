@@ -12,7 +12,7 @@ module.exports = {
 			template:'index.html',
 			inject:'body'
 		})
-	]，
+	],
 	module:{
 		rules:[
 			{
